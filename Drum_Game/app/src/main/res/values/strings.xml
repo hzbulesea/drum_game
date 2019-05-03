@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Drum_Game</string>
+    <!--(ZH) add the string tag-->
+    <string name="bt_start">Start</string>
+    <string name="bg">background</string>
+    <string name = "image_logo1">Logo</string>
 </resources>

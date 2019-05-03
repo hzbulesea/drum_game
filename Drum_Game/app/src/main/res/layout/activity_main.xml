@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--(ZH) android:background="@drawable/repeat_bg" call repeat_bg xml file-->
+    <!--(ZH) android:theme="@style/Theme.AppCompat.NoActionBar" hid the action bar-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,6 +11,7 @@
     android:theme="@style/Theme.AppCompat.NoActionBar">
 
     <ImageView
+        android:contentDescription="@string/bg"
         android:id="@+id/imageView7"
         android:layout_width="759dp"
         android:layout_height="413dp"
@@ -20,6 +23,7 @@
         app:srcCompat="@mipmap/background" />
 
     <ImageView
+        android:contentDescription="@string/image_logo1"
         android:id="@+id/imageView8"
         android:layout_width="419dp"
         android:layout_height="160dp"
@@ -30,10 +34,13 @@
         app:layout_constraintVertical_bias="0.438"
         app:srcCompat="@mipmap/logo1" />
 
+    <!--android:background="#00000000" is png image background transparent-->
+    <!--android:scaleType="fitXY" shrink the image scale-->
     <ImageButton
+        android:contentDescription="@string/bt_start"
         android:id="@+id/bt_main_start"
-        android:layout_width="325px"
-        android:layout_height="149px"
+        android:layout_width="108dp"
+        android:layout_height="49dp"
         android:background="#00000000"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"

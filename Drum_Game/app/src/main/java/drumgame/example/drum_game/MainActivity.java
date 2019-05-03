@@ -15,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // localed the screen as landscape
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         setContentView(R.layout.activity_main);
         bt_main_start = (ImageButton) findViewById(R.id.bt_main_start);
         bt_main_start.setOnTouchListener(imageButtonTouchListener);
 
     }
 
-    // press image button change image
+    //(ZH) press image button change image
     private View.OnTouchListener imageButtonTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
