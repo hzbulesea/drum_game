@@ -12,7 +12,7 @@
         <!--(ZH) android:theme="@style/AppTheme.NoBar" add tag to each activity to hide the status bar-->
         <activity android:name=".PlaygroundAvtivity" android:theme="@style/AppTheme.NoBar"/>
         <activity android:name=".MenuActivity" android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoBar">
+        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoBar" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

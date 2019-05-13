@@ -2,15 +2,17 @@ package drumgame.example.drum_game;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.v7.app.AppCompatActivity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton bt_main_start;
+    MediaPlayer mp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,22 @@ public class MainActivity extends AppCompatActivity {
         bt_main_start = (ImageButton) findViewById(R.id.bt_main_start);
         bt_main_start.setOnTouchListener(imageButtonTouchListener);
 
+
+        if (mp == null) {
+            mp = MediaPlayer.create(this, R.raw.m1);
+        }
+
+        mp.start();
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mp != null ) {
+            mp.stop();
+        }
     }
 
     //(ZH) press image button change image
