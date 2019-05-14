@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class PlaygroundAvtivity extends AppCompatActivity {
     private ImageButton mButton01,mButton02;
@@ -14,7 +15,6 @@ public class PlaygroundAvtivity extends AppCompatActivity {
     private int music1, music2;//定义一个整型用load（）；来设置suondID
     MediaPlayer mp;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
