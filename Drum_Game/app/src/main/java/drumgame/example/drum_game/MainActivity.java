@@ -18,10 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         setContentView(R.layout.activity_main);
-        bt_main_start = (ImageButton) findViewById(R.id.bt_main_start);
+        bt_main_start =findViewById(R.id.bt_main_start);
         bt_main_start.setOnTouchListener(imageButtonTouchListener);
-
-
 
         mp = MediaPlayer.create(this, R.raw.m1);
         mp.start();
@@ -32,16 +30,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if(mp != null ) {
-            mp.stop();
+            mp.pause();
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (mp == null) {
-            mp = MediaPlayer.create(this, R.raw.m1);
-            mp.start();
+        if (mp != null) {
+            if (!mp.isPlaying()){
+                mp.start();
+            }
         }
     }
 
