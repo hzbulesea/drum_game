@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mp;
     SoundPool sp;
     int mSound1, mSound2;
+    int streamID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         mp = MediaPlayer.create(this, R.raw.m1);
         mp.start();
+        streamID = sp.play(mSound1, 1, 1, 0, 0, 1);
     }
 
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     //after Image button release
                     bt_main_start.setImageResource(R.mipmap.start_onfocus);
                     Intent intent = new Intent(MainActivity.this, menu1.class);
-                    sp.play(mSound1, 1, 1, 0, 0, 1);
+                    mp.pause();
                     startActivity(intent);
                     break;
                 }
