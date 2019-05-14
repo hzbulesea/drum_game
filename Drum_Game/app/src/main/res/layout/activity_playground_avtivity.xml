@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/p11"
+    android:background="@mipmap/dinner"
+    android:orientation="vertical"
     tools:context=".PlaygroundAvtivity">
 
-    <Button
-        android:id="@+id/left"
-        android:layout_width="151dp"
-        android:layout_height="138dp"
-        android:layout_marginTop="202dp"
-        android:layout_marginEnd="224dp"
-        android:background="@mipmap/g2"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/right"
-        android:layout_width="151dp"
-        android:layout_height="138dp"
-        android:layout_marginStart="228dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="1dp"
-        android:background="@mipmap/g2"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
-</android.support.constraint.ConstraintLayout>
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp" />
+
+        <?xml version="1.0" encoding="utf-8"?>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="222dp">
+
+        <ImageButton
+            android:id="@+id/left"
+            android:layout_width="151dp"
+            android:layout_height="138dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="50dp"
+            android:background="#00000000"
+            app:srcCompat="@mipmap/dumpling4" />
+
+        <ImageButton
+            android:id="@+id/right"
+            android:layout_width="151dp"
+            android:layout_height="138dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="60dp"
+            android:background="#00000000"
+            app:srcCompat="@mipmap/dumpling1" />
+    </LinearLayout>
+
+</android.widget.LinearLayout>
