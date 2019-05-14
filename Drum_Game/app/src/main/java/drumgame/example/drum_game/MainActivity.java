@@ -1,5 +1,7 @@
 package drumgame.example.drum_game;
 
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,23 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if(mp != null ) {
-            mp.pause();
-        }
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mp != null) {
-            if (!mp.isPlaying()){
-                mp.start();
-            }
-        }
-    }
 
 
     //(ZH) press image button change image

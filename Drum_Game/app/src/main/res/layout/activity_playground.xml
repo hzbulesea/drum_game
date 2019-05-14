@@ -4,22 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     android:background="@mipmap/dinner"
     android:orientation="vertical"
-    tools:context=".PlaygroundAvtivity">
+    tools:context=".PlaygroundActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal">
 
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="105dp"
+            android:layout_height="78dp"
+            android:layout_marginLeft="800dp"
+            android:layout_marginBottom="200dp"
+            app:srcCompat="@mipmap/dumpling3_2" />
 
-        <?xml version="1.0" encoding="utf-8"?>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="105dp"
+            android:layout_height="78dp"
+            android:layout_marginLeft="800dp"
+            android:layout_marginBottom="200dp"
+            android:background="@mipmap/dumpling3" />
 
     </LinearLayout>
 
@@ -50,3 +59,4 @@
     </LinearLayout>
 
 </android.widget.LinearLayout>
+

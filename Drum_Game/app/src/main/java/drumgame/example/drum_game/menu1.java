@@ -131,7 +131,7 @@ public class menu1 extends AppCompatActivity {
 
 
     public void toBtn1(View v) {
-        Intent intent = new Intent(this, PlaygroundAvtivity.class);
+        Intent intent = new Intent(this, PlaygroundActivity.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
@@ -166,7 +166,7 @@ public class menu1 extends AppCompatActivity {
         startActivity(intent);
     }
     public void toBtn8(View v) {
-        Intent intent = new Intent(this, PlaygroundAvtivity.class);
+        Intent intent = new Intent(this, PlaygroundActivity.class);
         sp.play(mSound2, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
