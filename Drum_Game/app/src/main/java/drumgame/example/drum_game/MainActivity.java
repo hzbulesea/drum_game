@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
         bt_main_start.setOnTouchListener(imageButtonTouchListener);
 
 
-        if (mp == null) {
-            mp = MediaPlayer.create(this, R.raw.m1);
-        }
+
+        mp = MediaPlayer.create(this, R.raw.m1);
         mp.start();
     }
 
@@ -36,6 +35,19 @@ public class MainActivity extends AppCompatActivity {
             mp.stop();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mp == null) {
+            mp = MediaPlayer.create(this, R.raw.m1);
+            mp.start();
+        }
+    }
+
+
+
+
 
     //(ZH) press image button change image
     private View.OnTouchListener imageButtonTouchListener = new View.OnTouchListener() {
