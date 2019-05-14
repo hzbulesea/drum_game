@@ -9,27 +9,29 @@
     tools:context=".PlaygroundAvtivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/left"
         android:layout_width="151dp"
         android:layout_height="138dp"
         android:layout_marginTop="202dp"
-        android:layout_marginEnd="106dp"
+        android:layout_marginEnd="224dp"
         android:background="@mipmap/g2"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.408" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/right"
         android:layout_width="151dp"
         android:layout_height="138dp"
-        android:layout_marginStart="127dp"
+        android:layout_marginStart="228dp"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="1dp"
         android:background="@mipmap/g2"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43" />
 </android.support.constraint.ConstraintLayout>
