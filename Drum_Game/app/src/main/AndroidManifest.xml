@@ -9,10 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--(ZH) android:theme="@style/AppTheme.NoBar" add tag to each activity to hide the status bar-->
-        <activity android:name=".PlaygroundAvtivity" android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".MenuActivity" android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoBar" android:screenOrientation="landscape">
+        <activity android:name=".menu1"></activity>
+        <!-- (ZH) android:theme="@style/AppTheme.NoBar" add tag to each activity to hide the status bar -->
+        <activity
+            android:name=".PlaygroundAvtivity"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton bt_main_start;
     MediaPlayer mp;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
         if (mp == null) {
             mp = MediaPlayer.create(this, R.raw.m1);
         }
-
         mp.start();
-
     }
 
 
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     //after Image button release
                     bt_main_start.setImageResource(R.mipmap.start_onfocus);
-                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(MainActivity.this, menu1.class);
                     startActivity(intent);
                     break;
                 }
