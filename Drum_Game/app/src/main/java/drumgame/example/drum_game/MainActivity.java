@@ -46,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     //(ZH) press image button change image
     private View.OnTouchListener imageButtonTouchListener = new View.OnTouchListener() {
         @Override
