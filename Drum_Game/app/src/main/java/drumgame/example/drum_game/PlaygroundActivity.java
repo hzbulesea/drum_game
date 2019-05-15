@@ -33,10 +33,10 @@ public class PlaygroundActivity extends AppCompatActivity {
         mButton02=(ImageButton)findViewById(R.id.right);
         sp1= new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
         sp2= new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
-        music1 = sp1.load(this, R.raw.s2, 1);
-        music2 = sp2.load(this, R.raw.s1, 1);
+        music1 = sp1.load(this, R.raw.s1, 1);
+        music2 = sp2.load(this, R.raw.s2, 1);
 
-        mp = MediaPlayer.create(this, R.raw.m1);
+        mp = MediaPlayer.create(this, R.raw.m2);
         mp.start();
 
 

@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -45,30 +44,35 @@ public class menu1 extends AppCompatActivity {
 
         view1 = inflater.inflate(R.layout.button_container, gallery, false);
         button1 = view1.findViewById(R.id.btnCon1);
+        button1.setImageResource(R.mipmap.streamdraw);
        // button1.setText("Songs");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view1);
 
         view2 = inflater.inflate(R.layout.button_container, gallery, false);
         button2 = view2.findViewById(R.id.btnCon1);
+        button2.setImageResource(R.mipmap.streamdraw2);
         //button2.setText("button 2");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view2);
 
         view3 = inflater.inflate(R.layout.button_container, gallery, false);
         button3 = view3.findViewById(R.id.btnCon1);
+        button3.setImageResource(R.mipmap.streamdraw3);
        // button3.setText("button 3");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view3);
 
         view4 = inflater.inflate(R.layout.button_container, gallery, false);
         button4 = view4.findViewById(R.id.btnCon1);
+        button4.setImageResource(R.mipmap.streamdraw4);
        // button4.setText("button 4");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view4);
 
         view5 = inflater.inflate(R.layout.button_container, gallery, false);
         button5 = view5.findViewById(R.id.btnCon1);
+        button5.setImageResource(R.mipmap.streamdraw1);
        // button5.setText("button 5");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view5);
