@@ -15,7 +15,7 @@ public class songPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_page);
         getSupportActionBar().hide(); // hide the title bar
-        sp = new SoundPool(2, AudioManager.STREAM_MUSIC,100);
+        sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
         mSound1 = sp.load(this, R.raw.s1, 0);
         mSound2 = sp.load(this, R.raw.s2, 0);
     }

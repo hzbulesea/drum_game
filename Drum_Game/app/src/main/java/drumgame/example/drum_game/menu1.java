@@ -1,11 +1,7 @@
 package drumgame.example.drum_game;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.Shader.TileMode;
-
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -24,28 +20,27 @@ public class menu1 extends AppCompatActivity {
     ImageButton bt_menu;
     int mSound1, mSound2;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         setContentView(R.layout.activity_menu1);
         LinearLayout gallery = findViewById(R.id.btnCon1);
         LayoutInflater inflater = LayoutInflater.from(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); // hide the title bar
-        sp = new SoundPool(2, AudioManager.STREAM_MUSIC,100);
+        sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
         mSound1 = sp.load(this, R.raw.s1, 0);
         mSound2 = sp.load(this, R.raw.s2, 0);
 
-        bt_menu = (ImageButton)findViewById(R.id.bt_menu);
+        bt_menu = (ImageButton) findViewById(R.id.bt_menu);
         bt_menu.setOnTouchListener(imageButtonTouchListener);
 
 
         view1 = inflater.inflate(R.layout.button_container, gallery, false);
         button1 = view1.findViewById(R.id.btnCon1);
         button1.setImageResource(R.mipmap.streamdraw);
-       // button1.setText("Songs");
+        // button1.setText("Songs");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view1);
 
@@ -59,39 +54,39 @@ public class menu1 extends AppCompatActivity {
         view3 = inflater.inflate(R.layout.button_container, gallery, false);
         button3 = view3.findViewById(R.id.btnCon1);
         button3.setImageResource(R.mipmap.streamdraw3);
-       // button3.setText("button 3");
+        // button3.setText("button 3");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view3);
 
         view4 = inflater.inflate(R.layout.button_container, gallery, false);
         button4 = view4.findViewById(R.id.btnCon1);
         button4.setImageResource(R.mipmap.streamdraw4);
-       // button4.setText("button 4");
+        // button4.setText("button 4");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view4);
 
         view5 = inflater.inflate(R.layout.button_container, gallery, false);
         button5 = view5.findViewById(R.id.btnCon1);
         button5.setImageResource(R.mipmap.streamdraw1);
-       // button5.setText("button 5");
+        // button5.setText("button 5");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view5);
 
         view6 = inflater.inflate(R.layout.button_container, gallery, false);
         button6 = view6.findViewById(R.id.btnCon1);
-       // button6.setText("button 6");
+        // button6.setText("button 6");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view6);
 
         view7 = inflater.inflate(R.layout.button_container, gallery, false);
         button7 = view7.findViewById(R.id.btnCon1);
-       // button7.setText("button 7");
+        // button7.setText("button 7");
         sp.play(mSound1, 1, 1, 0, 0, 1);
         gallery.addView(view7);
 
         view8 = inflater.inflate(R.layout.button_container, gallery, false);
         button8 = view8.findViewById(R.id.btnCon1);
-      // button8.setText("Ready");
+        // button8.setText("Ready");
         gallery.addView(view8);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -145,42 +140,48 @@ public class menu1 extends AppCompatActivity {
     }
 
 
-
     public void toBtn1(View v) {
         Intent intent = new Intent(this, PlaygroundActivity.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn2(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn3(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn4(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn5(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn6(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn7(View v) {
         Intent intent = new Intent(this, songPage.class);
         sp.play(mSound1, 1, 1, 0, 0, 1);
         startActivity(intent);
     }
+
     public void toBtn8(View v) {
         Intent intent = new Intent(this, PlaygroundActivity.class);
         sp.play(mSound2, 1, 1, 0, 0, 1);
@@ -192,18 +193,16 @@ public class menu1 extends AppCompatActivity {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                {
+                case MotionEvent.ACTION_DOWN: {
                     //press down image button
                     bt_menu.setImageResource(R.mipmap.icon_red_press);
                     break;
                 }
-                case MotionEvent.ACTION_UP:
-                {
+                case MotionEvent.ACTION_UP: {
                     //after Image button release
                     bt_menu.setImageResource(R.mipmap.icon_red);
                     //Intent intent = new Intent(MainActivity.this, menu1.class);
-                   // sp.play(mSound1, 1, 1, 0, 0, 1);
+                    // sp.play(mSound1, 1, 1, 0, 0, 1);
 
                     break;
                 }
@@ -213,7 +212,6 @@ public class menu1 extends AppCompatActivity {
             return false;
         }
     };
-
 
 
 }

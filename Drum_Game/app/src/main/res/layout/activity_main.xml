@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-    <!--(ZH) android:background="@drawable/repeat_bg" call repeat_bg xml file-->
-    <!--(ZH) android:theme="@style/Theme.AppCompat.NoActionBar" hid the action bar-->
+<?xml version="1.0" encoding="utf-8"?><!--(ZH) android:background="@drawable/repeat_bg" call repeat_bg xml file--><!--(ZH) android:theme="@style/Theme.AppCompat.NoActionBar" hid the action bar-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/repeat_bg"
-    tools:context=".MainActivity"
-    android:theme="@style/Theme.AppCompat.NoActionBar">
+    android:screenOrientation="landscape"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    tools:context=".MainActivity">
 
     <ImageView
-        android:contentDescription="@string/bg"
         android:id="@+id/imageView7"
         android:layout_width="759dp"
         android:layout_height="413dp"
+        android:contentDescription="@string/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
@@ -23,10 +22,10 @@
         app:srcCompat="@mipmap/background" />
 
     <ImageView
-        android:contentDescription="@string/image_logo1"
         android:id="@+id/imageView8"
         android:layout_width="419dp"
         android:layout_height="160dp"
+        android:contentDescription="@string/image_logo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +36,11 @@
     <!--android:background="#00000000" is png image background transparent-->
     <!--android:scaleType="fitXY" shrink the image scale-->
     <ImageButton
-        android:contentDescription="@string/bt_start"
         android:id="@+id/bt_main_start"
         android:layout_width="108dp"
         android:layout_height="49dp"
         android:background="#00000000"
+        android:contentDescription="@string/bt_start"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

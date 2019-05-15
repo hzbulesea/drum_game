@@ -1,5 +1,6 @@
 package drumgame.example.drum_game;
 
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -15,24 +16,26 @@ import android.widget.ImageView;
 
 public class PlaygroundActivity extends AppCompatActivity {
 
-    private ImageButton mButton01,mButton02;
+    private ImageButton mButton01, mButton02;
     private SoundPool sp1, sp2;
     private int music1, music2;
     MediaPlayer mp;
 
-    ImageView image1,image2;
+    ImageView image1, image2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_playground);
 
-        mButton01=(ImageButton)findViewById(R.id.left);
-        mButton02=(ImageButton)findViewById(R.id.right);
-        sp1= new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
-        sp2= new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
+        mButton01 = (ImageButton) findViewById(R.id.left);
+        mButton02 = (ImageButton) findViewById(R.id.right);
+        sp1 = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
+        sp2 = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
         music1 = sp1.load(this, R.raw.s1, 1);
         music2 = sp2.load(this, R.raw.s2, 1);
 
@@ -47,14 +50,6 @@ public class PlaygroundActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
         mButton02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,10 +59,11 @@ public class PlaygroundActivity extends AppCompatActivity {
 
         move();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        if(mp != null ) {
+        if (mp != null) {
             mp.pause();
         }
     }
@@ -76,7 +72,7 @@ public class PlaygroundActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (mp != null) {
-            if (!mp.isPlaying()){
+            if (!mp.isPlaying()) {
                 mp.start();
             }
         }
@@ -84,27 +80,23 @@ public class PlaygroundActivity extends AppCompatActivity {
 
     private void move() {
         boolean f = true;
-        for (int i = 0; i < 3; i++){
-            if (f == false){
+        for (int i = 0; i < 3; i++) {
+            if (f == false) {
                 image1 = findViewById(R.id.imageView);
-                Animation img = new TranslateAnimation(Animation.ABSOLUTE, -6000, Animation.ABSOLUTE,Animation.ABSOLUTE);
+                Animation img = new TranslateAnimation(Animation.ABSOLUTE, -6000, Animation.ABSOLUTE, Animation.ABSOLUTE);
                 img.setDuration(5000);
                 img.setFillAfter(true);
                 f = true;
                 image1.startAnimation(img);
 
-            }
-            else{
+            } else {
                 image2 = findViewById(R.id.imageView3);
-                Animation img2 = new TranslateAnimation(Animation.ABSOLUTE, -4000, Animation.ABSOLUTE,Animation.ABSOLUTE);
+                Animation img2 = new TranslateAnimation(Animation.ABSOLUTE, -4000, Animation.ABSOLUTE, Animation.ABSOLUTE);
                 img2.setDuration(5000);
                 img2.setFillAfter(true);
                 f = false;
                 image2.startAnimation(img2);
             }
         }
-
-
-
     }
 }
