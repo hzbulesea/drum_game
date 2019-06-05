@@ -13,51 +13,38 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton bt_main_start;
-    MediaPlayer mp;
-    SoundPool sp;
-    int mSound1, mSound2;
-    int streamID;
+    MediaPlayer mp;         //background music declare
+    SoundPool soundPool;    // use for button sound effective
+    int btn_main_sound;     //main button sound declare
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         setContentView(R.layout.activity_main);
-        bt_main_start = findViewById(R.id.bt_main_start);
-        bt_main_start.setOnTouchListener(imageButtonTouchListener);
+        mp = MediaPlayer.create(this, R.raw.title);        //create background music
+        mp.start();                                             // play background music
+        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);   // initial sound pool
+        btn_main_sound = soundPool.load(this,R.raw.btn_main, 0);
+        bt_main_start = findViewById(R.id.bt_main_start);       // initial main button
 
-        sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
-        mSound1 = sp.load(this, R.raw.s1, 0);
-        mSound2 = sp.load(this, R.raw.s2, 0);
-
-        mp = MediaPlayer.create(this, R.raw.m1);
-        mp.start();
-        streamID = sp.play(mSound1, 1, 1, 0, 0, 1);
-    }
-
-
-    //(ZH) press image button change image
-    private View.OnTouchListener imageButtonTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN: {
-                    //press down image button
+        // main button onTouch Listener
+        bt_main_start.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
                     bt_main_start.setImageResource(R.mipmap.start_click);
-                    break;
+                    soundPool.play(btn_main_sound, 1, 1, 0, 0, 1);
+
                 }
-                case MotionEvent.ACTION_UP: {
-                    //after Image button release
+                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
                     bt_main_start.setImageResource(R.mipmap.start_onfocus);
-                    Intent intent = new Intent(MainActivity.this, menu1.class);
                     mp.pause();
+                    Intent intent = new Intent(MainActivity.this, Menu.class);
                     startActivity(intent);
-                    break;
                 }
-                default:
-                    break;
+                return false;
             }
-            return false;
-        }
-    };
+        });
+    }
 }
