@@ -3,22 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/theBTN"
-    android:layout_width="140dp"
-    android:layout_height="wrap_content">
+    android:layout_width="110dp"
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/btnCon1"
         android:layout_width="95dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="205dp"
         android:background="#00000000"
-        android:onClick="btn"
         android:scaleType="fitXY"
         android:text="Song"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/streamdraw" />

@@ -64,24 +64,25 @@
             android:id="@+id/imageView1"
             android:layout_width="105dp"
             android:layout_height="78dp"
-            app:srcCompat="@mipmap/dumpling3" />
+            app:srcCompat="@mipmap/dumpling8" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="105dp"
             android:layout_height="78dp"
-            app:srcCompat="@mipmap/dumpling3" />
+            app:srcCompat="@mipmap/dumpling8" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="105dp"
             android:layout_height="78dp"
-            app:srcCompat="@mipmap/dumpling2" />
+            app:srcCompat="@mipmap/dumpling9" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="105dp"
             android:layout_height="78dp"
-            app:srcCompat="@mipmap/dumpling2" />
+            app:srcCompat="@mipmap/dumpling9" />
 
 
     </LinearLayout>
