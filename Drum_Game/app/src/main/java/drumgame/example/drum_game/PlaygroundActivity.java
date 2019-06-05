@@ -109,7 +109,7 @@ public class PlaygroundActivity extends AppCompatActivity {
 
 
     }
-//https://www.youtube.com/watch?v=UxbJKNjQWD8 
+//https://www.youtube.com/watch?v=UxbJKNjQWD8
     private void changePos() {
         image1X -=10;
         if (image1.getX() < 200){
