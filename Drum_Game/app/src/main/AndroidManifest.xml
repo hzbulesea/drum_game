@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PlaygroundActivity8"></activity>
+        <activity android:name=".PlaygroundActivity7" />
+        <activity android:name=".PlaygroundActivity6" />
+        <activity android:name=".PlaygroundActivity5" />
+        <activity android:name=".PlaygroundActivity4" />
+        <activity android:name=".PlaygroundActivity3" />
+        <activity android:name=".PlaygroundActivity2" />
+        <activity android:name=".PlaygroundActivity1" />
+        <activity android:name=".ScoreActivity" />
         <activity android:name=".Menu" />
         <activity
             android:name=".PlaygroundActivity"

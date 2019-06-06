@@ -24,25 +24,21 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PlaygroundActivity extends AppCompatActivity {
+public class PlaygroundActivity4 extends AppCompatActivity {
 
     private ImageButton mButton01, mButton02, back_btn;
     private SoundPool sp1, sp2;
     private int music1, music2;
     MediaPlayer mediaPlayer;
 
-    ImageView image1, image2, image3, image4, bear;
+    ImageView image1, image2, image3, image4, image6, bear;
     int drum;
 
     TextView score, show;
-    static int scores;
-    static int perfects;
-    static int goods;
-    static int poors;
 
     private int screenWidth, screenHeight;
 
-    private float image1X, image2X, image3X, image4X;
+    private float image1X, image2X, image3X, image4X, image6X;
 
     private Handler handler = new Handler();
     private Timer timer = new Timer();
@@ -57,14 +53,14 @@ public class PlaygroundActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_playground);
 
-        scores = 0;
-        perfects = 0;
-        goods = 0;
-        poors = 0;
+        MainActivity.scores = 0;
+        MainActivity.perfects = 0;
+        MainActivity.goods = 0;
+        MainActivity.poors = 0;
 
 
         score = findViewById(R.id.scores);
-        score.setText(String.valueOf(scores));
+        score.setText(String.valueOf(MainActivity.scores));
         mButton01 = (ImageButton) findViewById(R.id.left);
         mButton01.setOnTouchListener(leftButtonTouchListener);
         mButton02 = (ImageButton) findViewById(R.id.right);
@@ -74,14 +70,13 @@ public class PlaygroundActivity extends AppCompatActivity {
         music1 = sp1.load(this, R.raw.s1, 1);
         music2 = sp2.load(this, R.raw.s2, 1);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.m2_totoro);
+        mediaPlayer = MediaPlayer.create(this, R.raw.m8_demo_lovingyouslowly);
 //        mediaPlayer.start();
         mediaPlayer.setVolume(13,13);
 
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                // TODO Auto-generated method stub
                 performOnEnd();
             }
         });
@@ -100,16 +95,23 @@ public class PlaygroundActivity extends AppCompatActivity {
         image3 = findViewById(R.id.imageView3);
         image4 = findViewById(R.id.imageView4);
 
+        image6 = findViewById(R.id.imageView4);
+
+        Log.d("image4", ""+image4);
+        Log.d("image6", ""+image6);
+
         image1.setX(300.0f);
         image2.setX(300.0f);
         image3.setX(300.0f);
         image4.setX(300.0f);
+        image6.setX(300.0f);
 //        image1.setY(0.0f);
 
-        image1X = screenWidth;
-        image2X = screenWidth+800;
+        image1X = screenWidth+500;
+        image2X = screenWidth+1200;
         image3X = screenWidth+300;
-        image4X = screenWidth+500;
+        image4X = screenWidth+800;
+        image6X = screenWidth;
 
         timer.schedule(new TimerTask() {
             @Override
@@ -142,7 +144,7 @@ public class PlaygroundActivity extends AppCompatActivity {
                 }
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
                     back_btn.setImageResource(R.mipmap.icon_back);
-                    Intent intent = new Intent(PlaygroundActivity.this, ScoreActivity.class);
+                    Intent intent = new Intent(PlaygroundActivity4.this, ScoreActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -187,6 +189,12 @@ public class PlaygroundActivity extends AppCompatActivity {
         }
         image4.setX(image4X);
 
+        image6X -=10;
+        if (image6.getX() < 300){
+            image6X = screenWidth;
+        }
+        image6.setX(image6X);
+
     }
 
     @Override
@@ -226,51 +234,49 @@ public class PlaygroundActivity extends AppCompatActivity {
                     bear.setImageResource(R.mipmap.bear_eat);
                     sp1.play(music1, 1, 1, 0, 0, 1);
                     if (image1X < 340){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        perfects +=1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click1", "perfect");     // click baozi button in this is perfect
                     }                                              // if perfect, add some point to score
                     else if (image1X >= 340 && image1X < 370){
-                        scores += 100;
-                        score.setText(String.valueOf(scores));
-                        goods += 1;
+                        MainActivity.scores += 100;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click1", "good");
                     }
                     else if (image1X >= 370 && image1X < 400){
-                        scores += 50;
-                        score.setText(String.valueOf(scores));
-                        poors += 1;
+                        MainActivity.scores += 50;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.poors += 1;
                         show.setText("poor");
                         Log.d("click1", "poor");
                     }else{
-                        show.setText("");
                         Log.d("click1", "bad");
                     }
                     if (image2X < 340){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        perfects +=1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click2", "perfect");
                     }
                     else if (image2X >= 340 && image2X < 370){
-                        scores += 100;
-                        score.setText(String.valueOf(scores));
-                        goods += 1;
+                        MainActivity.scores += 100;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click2", "good");
                     }
                     else if (image2X >= 370 && image2X < 400){
-                        scores += 50;
-                        score.setText(String.valueOf(scores));
-                        poors += 1;
+                        MainActivity.scores += 50;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.poors += 1;
                         show.setText("poor");
                         Log.d("click2", "poor");
                     }else{
-                        show.setText("");
                         Log.d("click2", "bad");
                     }
                     break;
@@ -303,51 +309,72 @@ public class PlaygroundActivity extends AppCompatActivity {
                     bear.setImageResource(R.mipmap.bear_eat);
                     sp2.play(music2, 1, 1, 0, 0, 1);
                     if (image3X < 340){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        perfects +=1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click3", "perfect");
                     }
                     else if (image3X >= 340 && image3X < 370){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        goods += 1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click3", "good");
                     }
                     else if (image3X >= 370 && image3X < 400){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        poors += 1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.poors += 1;
                         show.setText("poor");
                         Log.d("click3", "poor");
                     }else{
-                        show.setText("");
                         Log.d("click3", "bad");
                     }
                     if (image4X < 340){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        perfects +=1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click4", "perfect");
                     }
                     else if (image4X >= 340 && image4X < 370){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        goods += 1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click4", "good");
                     }
                     else if (image4X >= 370 && image4X < 400){
-                        scores += 200;
-                        score.setText(String.valueOf(scores));
-                        poors += 1;
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.poors += 1;
                         show.setText("poor");
                         Log.d("click4", "poor");
                     }else{
-                        show.setText("");
+                        Log.d("click4", "bad");
+                    }
+                    if (image6X < 340){
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.perfects +=1;
+                        show.setText("perfect");
+                        Log.d("click4", "perfect");
+                    }
+                    else if (image6X >= 340 && image6X < 370){
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.goods += 1;
+                        show.setText("good");
+                        Log.d("click4", "good");
+                    }
+                    else if (image6X >= 370 && image6X < 400){
+                        MainActivity.scores += 200;
+                        score.setText(String.valueOf(MainActivity.scores));
+                        MainActivity.poors += 1;
+                        show.setText("poor");
+                        Log.d("click4", "poor");
+                    }else{
                         Log.d("click4", "bad");
                     }
                     break;

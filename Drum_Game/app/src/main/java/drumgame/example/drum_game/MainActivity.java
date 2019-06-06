@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
     SoundPool soundPool;    // use for button sound effective
     int btn_main_sound;     //main button sound declare
 
+    static int scores;
+    static int perfects;
+    static int goods;
+    static int poors;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
