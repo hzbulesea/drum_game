@@ -110,13 +110,6 @@
             android:layout_marginTop="50dp"
             app:srcCompat="@mipmap/dumpling9" />
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@mipmap/dumpling8" />
-
 
     </LinearLayout>
 

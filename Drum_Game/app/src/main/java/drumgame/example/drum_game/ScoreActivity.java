@@ -86,8 +86,9 @@ public class ScoreActivity extends AppCompatActivity {
                 int id = cursor.getInt(0);
                 String song = cursor.getString(1);
                 int score =cursor.getInt(2);
-                if (song != MainActivity.song){
+                if (!song.equals(MainActivity.song)){
                     MainActivity.db.insert(MainActivity.song, MainActivity.scores);
+                    Log.d("inserScore", "score not same");
                 }
                 else{
                     if (score > MainActivity.scores){

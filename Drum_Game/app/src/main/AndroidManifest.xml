@@ -9,28 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlaygroundActivity8"
+        <activity android:name=".ScorelistActivity"
             android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity7"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity6"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity5"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity4"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity3"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity2"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".PlaygroundActivity1"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".ScoreActivity"
-            android:theme="@style/AppTheme.NoBar"/>
-        <activity android:name=".Menu" />
         <activity
-            android:name=".PlaygroundActivity"
+            android:name=".PlaygroundActivity8"
             android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity7"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity6"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity5"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity4"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity3"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity2"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".PlaygroundActivity1"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity
+            android:name=".ScoreActivity"
+            android:theme="@style/AppTheme.NoBar" />
+        <activity android:name=".Menu" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"

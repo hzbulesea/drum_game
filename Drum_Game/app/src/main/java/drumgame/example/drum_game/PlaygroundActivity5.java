@@ -52,7 +52,7 @@ public class PlaygroundActivity5 extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_playground);
+        setContentView(R.layout.activity_playground5);
 
         MainActivity.scores = 0;
         MainActivity.perfects = 0;

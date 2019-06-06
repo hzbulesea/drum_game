@@ -60,7 +60,7 @@ public class Menu extends AppCompatActivity {
                 }
                 if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     bt_menu.setImageResource(R.mipmap.icon_red);
-                    Intent intent = new Intent(Menu.this, PlaygroundActivity.class);
+                    Intent intent = new Intent(Menu.this, ScorelistActivity.class);
                     startActivity(intent);
                 }
                 return false;
