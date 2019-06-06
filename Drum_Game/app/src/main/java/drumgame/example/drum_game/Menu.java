@@ -115,48 +115,56 @@ public class Menu extends AppCompatActivity {
                         switch (finalIndex) {
                             case 3:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw1);
+                                MainActivity.song = "Supid Child";
                                 Intent intent1 = new Intent(Menu.this, PlaygroundActivity1.class);
                                 startActivity(intent1);
                                 finish();
                                 break;
                             case 4:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw2);
+                                MainActivity.song = "Totoro";
                                 Intent intent2 = new Intent(Menu.this, PlaygroundActivity2.class);
                                 startActivity(intent2);
                                 finish();
                                 break;
                             case 5:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw3);
+                                MainActivity.song = "Bigfish";
                                 Intent intent3 = new Intent(Menu.this, PlaygroundActivity3.class);
                                 startActivity(intent3);
                                 finish();
                                 break;
                             case 6:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw4);
+                                MainActivity.song = "Lovingyouslowly";
                                 Intent intent4 = new Intent(Menu.this, PlaygroundActivity4.class);
                                 startActivity(intent4);
                                 finish();
                                 break;
                             case 7:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw5);
+                                MainActivity.song = "Small Fortune";
                                 Intent intent5 = new Intent(Menu.this, PlaygroundActivity5.class);
                                 startActivity(intent5);
                                 finish();
                                 break;
                             case 8:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw6);
+                                MainActivity.song = "Snowing";
                                 Intent intent6 = new Intent(Menu.this, PlaygroundActivity6.class);
                                 startActivity(intent6);
                                 finish();
                                 break;
                             case 9:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw7);
+                                MainActivity.song = "Whynot";
                                 Intent intent7 = new Intent(Menu.this, PlaygroundActivity7.class);
                                 startActivity(intent7);
                                 finish();
                                 break;
                             case 10:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw8);
+                                MainActivity.song = "Visit Near The River";
                                 Intent intent8 = new Intent(Menu.this, PlaygroundActivity8.class);
                                 startActivity(intent8);
                                 finish();

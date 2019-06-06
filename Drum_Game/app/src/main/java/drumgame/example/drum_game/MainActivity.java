@@ -22,11 +22,18 @@ public class MainActivity extends AppCompatActivity {
     static int goods;
     static int poors;
 
+    static String song;
+
+    static MyDB db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //(ZH) localed the screen as landscape
         setContentView(R.layout.activity_main);
+
+        db = new MyDB(this, "SCORE_TABLE", null,1);
+
         mp = MediaPlayer.create(this, R.raw.title);        //create background music
         mp.start();                                             // play background music
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);   // initial sound pool

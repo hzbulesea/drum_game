@@ -127,6 +127,7 @@ public class PlaygroundActivity1 extends AppCompatActivity {
         show = findViewById(R.id.shows);
 
 
+
         back_btn = findViewById(R.id.back_btn);       // initial main button
 
         // main button onTouch Listener

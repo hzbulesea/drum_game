@@ -2,6 +2,7 @@ package drumgame.example.drum_game;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -40,6 +43,12 @@ public class ScoreActivity extends AppCompatActivity {
         goods.setText(String.valueOf(MainActivity.goods));
         poors.setText(String.valueOf(MainActivity.poors));
 
+
+        Log.d("Song name", MainActivity.song);
+
+        inserScore();
+
+
         go_to_menu = findViewById(R.id.imageButton);
 
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);   // initial sound pool
@@ -50,12 +59,12 @@ public class ScoreActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
-                    go_to_menu.setImageResource(R.mipmap.start_click);
+                    go_to_menu.setImageResource(R.mipmap.back_click);
                     sp.play(btn_main_sound, 1, 1, 0, 0, 1);
 
                 }
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
-                    go_to_menu.setImageResource(R.mipmap.start_onfocus);
+                    go_to_menu.setImageResource(R.mipmap.back_onfocus);
                     Intent intent = new Intent(ScoreActivity.this, Menu.class);
                     startActivity(intent);
                     finish();
@@ -66,32 +75,29 @@ public class ScoreActivity extends AppCompatActivity {
 
     }
 
+    private void inserScore() {
+        Cursor cursor = MainActivity.db.view();
 
-    private View.OnTouchListener gotomenu = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN: {
-                    //press down image button
-                    go_to_menu.setImageResource(R.mipmap.start_click);
-
+        if (cursor.getCount() == 0){
+            MainActivity.db.insert(MainActivity.song, MainActivity.scores);
+        }
+        else{
+            while(cursor.moveToNext()){
+                int id = cursor.getInt(0);
+                String song = cursor.getString(1);
+                int score =cursor.getInt(2);
+                if (song != MainActivity.song){
+                    MainActivity.db.insert(MainActivity.song, MainActivity.scores);
                 }
-                case MotionEvent.ACTION_UP: {
-                    go_to_menu.setImageResource(R.mipmap.start_onfocus);
-                    Intent intent = new Intent(ScoreActivity.this, Menu.class);
-                    startActivity(intent);
-                    finish();
-                    break;
-                }
-                default:{
-                    Log.d("button", "not click");
-                    break;
+                else{
+                    if (score > MainActivity.scores){
+                        MainActivity.db.update(MainActivity.song, MainActivity.scores);
+                    }
                 }
             }
-
-            return false;
         }
 
-    };
+    }
+
 
 }

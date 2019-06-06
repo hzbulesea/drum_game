@@ -30,6 +30,7 @@ public class PlaygroundActivity4 extends AppCompatActivity {
     private SoundPool sp1, sp2;
     private int music1, music2;
     MediaPlayer mediaPlayer;
+    int i = 0;
 
     ImageView image1, image2, image3, image4, image6, bear;
     int drum;
@@ -95,23 +96,23 @@ public class PlaygroundActivity4 extends AppCompatActivity {
         image3 = findViewById(R.id.imageView3);
         image4 = findViewById(R.id.imageView4);
 
-        image6 = findViewById(R.id.imageView4);
+//        image6 = findViewById(R.id.imageView4);
 
-        Log.d("image4", ""+image4);
-        Log.d("image6", ""+image6);
+//        Log.d("image4", ""+image4);
+//        Log.d("image6", ""+image6);
 
         image1.setX(300.0f);
         image2.setX(300.0f);
         image3.setX(300.0f);
         image4.setX(300.0f);
-        image6.setX(300.0f);
+//        image6.setX(300.0f);
 //        image1.setY(0.0f);
 
         image1X = screenWidth+500;
         image2X = screenWidth+1200;
         image3X = screenWidth+300;
         image4X = screenWidth+800;
-        image6X = screenWidth;
+//        image6X = screenWidth;
 
         timer.schedule(new TimerTask() {
             @Override
@@ -120,6 +121,7 @@ public class PlaygroundActivity4 extends AppCompatActivity {
                     @Override
                     public void run() {
                         changePos();
+
                     }
                 });
             }
@@ -167,13 +169,26 @@ public class PlaygroundActivity4 extends AppCompatActivity {
     private void changePos() {
         image1X -=10;
         if (image1.getX() < 300){
+            i++;
+
             image1X = screenWidth;
+            if (i == 2){
+                image1.setVisibility(View.INVISIBLE);
+                Log.d("image1", "-----INVISIBLE");
+            }
         }
+
         image1.setX(image1X);
 
         image2X -=10;
         if (image2.getX() < 300){
             image2X = screenWidth;
+            if (i == 2){
+                image2.setVisibility(View.INVISIBLE);
+                image3.setVisibility(View.INVISIBLE);
+                image4.setVisibility(View.INVISIBLE);
+                Log.d("image1", "-----INVISIBLE");
+            }
         }
         image2.setX(image2X);
 
@@ -189,11 +204,15 @@ public class PlaygroundActivity4 extends AppCompatActivity {
         }
         image4.setX(image4X);
 
-        image6X -=10;
-        if (image6.getX() < 300){
-            image6X = screenWidth;
-        }
-        image6.setX(image6X);
+//        image6X -=10;
+//        if (image6.getX() < 300){
+//            image6X = screenWidth;
+//            if (i == 2){
+//                image6.setVisibility(View.INVISIBLE);
+//                Log.d("image1", "-----INVISIBLE");
+//            }
+//        }
+//        image6.setX(image6X);
 
     }
 
