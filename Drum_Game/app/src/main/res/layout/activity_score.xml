@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/repeat_bg_menu"
+    android:background="@drawable/repeat_bg_score"
     android:hapticFeedbackEnabled="false"
     android:orientation="vertical"
     android:screenOrientation="landscape"
@@ -18,7 +18,7 @@
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="1000000"
-        android:textColor="#DAF71023"
+        android:textColor="#DAFFFFFF"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
             android:gravity="center|center_horizontal|center_vertical"
             android:text="20"
             android:textColor="#1565C0"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -75,7 +75,7 @@
             android:gravity="center|center_horizontal|center_vertical"
             android:text="10"
             android:textColor="#1565C0"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -103,7 +103,7 @@
             android:gravity="center|center_horizontal|center_vertical"
             android:text="5"
             android:textColor="#1565C0"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -113,6 +113,13 @@
         android:gravity="center|center_horizontal|center_vertical"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/left" />
+
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="108dp"
@@ -121,6 +128,14 @@
             android:background="#00000000"
             android:scaleType="fitStart"
             app:srcCompat="@mipmap/back_onfocus" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/right" />
+
     </LinearLayout>
 
 </android.widget.LinearLayout>
