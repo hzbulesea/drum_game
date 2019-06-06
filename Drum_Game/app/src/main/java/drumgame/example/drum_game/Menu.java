@@ -115,29 +115,51 @@ public class Menu extends AppCompatActivity {
                         switch (finalIndex) {
                             case 3:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw1);
+                                Intent intent1 = new Intent(Menu.this, PlaygroundActivity1.class);
+                                startActivity(intent1);
+                                finish();
                                 break;
                             case 4:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw2);
-                                Intent intent = new Intent(Menu.this, PlaygroundActivity.class);
-                                startActivity(intent);
+                                Intent intent2 = new Intent(Menu.this, PlaygroundActivity2.class);
+                                startActivity(intent2);
+                                finish();
                                 break;
                             case 5:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw3);
+                                Intent intent3 = new Intent(Menu.this, PlaygroundActivity3.class);
+                                startActivity(intent3);
+                                finish();
                                 break;
                             case 6:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw4);
+                                Intent intent4 = new Intent(Menu.this, PlaygroundActivity4.class);
+                                startActivity(intent4);
+                                finish();
                                 break;
                             case 7:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw5);
+                                Intent intent5 = new Intent(Menu.this, PlaygroundActivity5.class);
+                                startActivity(intent5);
+                                finish();
                                 break;
                             case 8:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw6);
+                                Intent intent6 = new Intent(Menu.this, PlaygroundActivity6.class);
+                                startActivity(intent6);
+                                finish();
                                 break;
                             case 9:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw7);
+                                Intent intent7 = new Intent(Menu.this, PlaygroundActivity7.class);
+                                startActivity(intent7);
+                                finish();
                                 break;
                             case 10:
                                 button[finalIndex].setImageResource(R.mipmap.streamdraw8);
+                                Intent intent8 = new Intent(Menu.this, PlaygroundActivity8.class);
+                                startActivity(intent8);
+                                finish();
                                 break;
                         }
                     }
