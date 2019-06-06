@@ -32,7 +32,6 @@ public class PlaygroundActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
 
     ImageView image1, image2, image3, image4, bear;
-    int drum;
 
     TextView score, show;
     static int scores;

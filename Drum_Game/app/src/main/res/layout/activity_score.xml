@@ -115,12 +115,12 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="150dp"
+            android:layout_width="108dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:background="#00000000"
             android:scaleType="fitStart"
-            app:srcCompat="@mipmap/start_onfocus" />
+            app:srcCompat="@mipmap/back_onfocus" />
     </LinearLayout>
 
 </android.widget.LinearLayout>
