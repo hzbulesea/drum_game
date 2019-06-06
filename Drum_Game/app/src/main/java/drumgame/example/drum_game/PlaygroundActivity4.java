@@ -195,12 +195,20 @@ public class PlaygroundActivity4 extends AppCompatActivity {
         image3X -=10;
         if (image3.getX() < 300){
             image3X = screenWidth;
+            if (i == 1){
+                image3.setVisibility(View.INVISIBLE);
+                Log.d("image1", "-----INVISIBLE");
+            }
         }
         image3.setX(image3X);
 
         image4X -=10;
         if (image4.getX() < 300){
             image4X = screenWidth;
+            if (i == 1){
+                image4.setVisibility(View.INVISIBLE);
+                Log.d("image1", "-----INVISIBLE");
+            }
         }
         image4.setX(image4X);
 

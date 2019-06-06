@@ -3,6 +3,8 @@ package drumgame.example.drum_game;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 public class ScorelistActivity extends AppCompatActivity {
 
     private ImageButton back_btn;
+    private SoundPool soundPool;
+    int btn_menu_sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +35,16 @@ public class ScorelistActivity extends AppCompatActivity {
 
         back_btn = findViewById(R.id.back_btn);
 
+
+        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);   // initial sound pool
+        btn_menu_sound = soundPool.load(this,R.raw.btn_main, 0);
+
         back_btn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
                     back_btn.setImageResource(R.mipmap.back_click);
-
+                    soundPool.play(btn_menu_sound, 1, 1, 0, 0, 1);
                 }
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
                     back_btn.setImageResource(R.mipmap.back_onfocus);

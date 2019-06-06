@@ -78,23 +78,28 @@ public class ScoreActivity extends AppCompatActivity {
     private void inserScore() {
         Cursor cursor = MainActivity.db.view();
 
+        boolean check = false;
+        int id;
+        String song;
+        int score;
         if (cursor.getCount() == 0){
             MainActivity.db.insert(MainActivity.song, MainActivity.scores);
         }
         else{
             while(cursor.moveToNext()){
-                int id = cursor.getInt(0);
-                String song = cursor.getString(1);
-                int score =cursor.getInt(2);
-                if (!song.equals(MainActivity.song)){
-                    MainActivity.db.insert(MainActivity.song, MainActivity.scores);
-                    Log.d("inserScore", "score not same");
-                }
-                else{
-                    if (score > MainActivity.scores){
+                id = cursor.getInt(0);
+                song = cursor.getString(1);
+                score =cursor.getInt(2);
+                if (song.equals(MainActivity.song)){
+                    if (score < MainActivity.scores){
                         MainActivity.db.update(MainActivity.song, MainActivity.scores);
                     }
+                    check =true;
+                    break;
                 }
+            }
+            if (!check){
+                MainActivity.db.insert(MainActivity.song, MainActivity.scores);
             }
         }
 
