@@ -60,6 +60,19 @@ public class Menu extends AppCompatActivity {
                 }
                 if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     bt_menu.setImageResource(R.mipmap.icon_red);
+                    try {
+                        mp[3].pause();
+                        mp[4].pause();
+                        mp[5].pause();
+                        mp[6].pause();
+                        mp[7].pause();
+                        mp[8].pause();
+                        mp[9].pause();
+                        mp[10].pause();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Intent intent = new Intent(Menu.this, ScorelistActivity.class);
                     startActivity(intent);
                 }
