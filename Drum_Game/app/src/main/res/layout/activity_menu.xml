@@ -24,7 +24,7 @@
     <HorizontalScrollView
         android:id="@+id/scrv_menu"
         android:layout_width="wrap_content"
-        android:layout_height="320dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,6 +36,7 @@
             android:id="@+id/btnCon1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="bottom"
             android:orientation="horizontal" />
 
     </HorizontalScrollView>

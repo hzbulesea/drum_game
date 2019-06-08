@@ -9,6 +9,7 @@
     tools:context=".ScorelistActivity">
 
     <LinearLayout
+        android:id="@+id/l_top"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
@@ -16,8 +17,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
             android:fontFamily="@font/baloo"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="Highest Scores"
@@ -28,13 +28,15 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/l_middle"
         android:layout_width="match_parent"
         android:layout_height="250dp" />
 
     <LinearLayout
+        android:id="@+id/l_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="bottom"
         android:orientation="vertical">
 
         <ImageButton

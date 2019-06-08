@@ -70,7 +70,7 @@ public class PlaygroundActivity7 extends AppCompatActivity {
         music1 = sp1.load(this, R.raw.s1, 1);
         music2 = sp2.load(this, R.raw.s2, 1);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.m7_whynot);
+        mediaPlayer = MediaPlayer.create(this, R.raw.m7);
 //        mediaPlayer.start();
         mediaPlayer.setVolume(13,13);
 

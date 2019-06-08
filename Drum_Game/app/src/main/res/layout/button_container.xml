@@ -4,20 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/theBTN"
     android:layout_width="110dp"
-    android:layout_height="match_parent">
+    android:layout_height="249dp"
+    android:layout_gravity="bottom">
 
     <ImageButton
         android:id="@+id/btnCon1"
         android:layout_width="95dp"
         android:layout_height="112dp"
-        android:layout_marginTop="205dp"
         android:background="#00000000"
+        android:minHeight="436dp"
         android:scaleType="fitXY"
         android:text="Song"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/streamdraw" />
 
 </android.support.constraint.ConstraintLayout>

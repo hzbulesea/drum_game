@@ -7,13 +7,16 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,10 @@ public class ScorelistActivity extends AppCompatActivity {
     private ImageButton back_btn;
     private SoundPool soundPool;
     int btn_menu_sound;
+    DisplayMetrics displayMetrics;
+    LinearLayout l_top,l_bottom;
+    ListView l_middle;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,21 @@ public class ScorelistActivity extends AppCompatActivity {
         scoreList();
 
         back_btn = findViewById(R.id.back_btn);
+        displayMetrics = getResources().getDisplayMetrics();
+        DeviceInfor deviceInfor = new DeviceInfor(displayMetrics);
+
+        l_top = (LinearLayout)findViewById(R.id.l_top);
+        l_top.getLayoutParams().height = deviceInfor.dpiToPx(62);
+        textView = (TextView)findViewById(R.id.textView);
+        textView.setTextSize(deviceInfor.pxTodpi(l_top.getLayoutParams().height - deviceInfor.dpiToPx(16)));
+
+        l_middle=(ListView)findViewById(R.id.l_middle);
+        l_middle.getLayoutParams().height = (int)(deviceInfor.getHeight()*0.6);
+
+        l_bottom = (LinearLayout)findViewById(R.id.l_bottom);
+        l_bottom.getLayoutParams().height = (int)(deviceInfor.getHeight()*0.2);
+
+
 
 
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);   // initial sound pool
@@ -58,7 +80,7 @@ public class ScorelistActivity extends AppCompatActivity {
     }
 
     private void scoreList() {
-        ListView mListView =(ListView) findViewById(R.id.list);
+        ListView mListView =(ListView) findViewById(R.id.l_middle);
         Cursor cursor = MainActivity.db.view();
         Log.d("cursor", String.valueOf(cursor));
         ArrayList<Contact> listData = new ArrayList<>();
