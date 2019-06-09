@@ -44,7 +44,7 @@ public class ScorelistActivity extends AppCompatActivity {
         displayMetrics = getResources().getDisplayMetrics();
         DeviceInfor deviceInfor = new DeviceInfor(displayMetrics);
 
-        l_top = (LinearLayout)findViewById(R.id.l_top);
+        l_top = (LinearLayout)findViewById(R.id.layout1);
         l_top.getLayoutParams().height = deviceInfor.dpiToPx(62);
         textView = (TextView)findViewById(R.id.textView);
         textView.setTextSize(deviceInfor.pxTodpi(l_top.getLayoutParams().height - deviceInfor.dpiToPx(16)));

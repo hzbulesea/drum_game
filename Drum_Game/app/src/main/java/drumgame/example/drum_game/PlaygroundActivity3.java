@@ -7,8 +7,10 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -19,6 +21,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Timer;
@@ -36,12 +39,18 @@ public class PlaygroundActivity3 extends AppCompatActivity {
 
     TextView score, show;
 
+    int i = 0;
+
     private int screenWidth, screenHeight;
 
     private float image1X, image2X, image3X, image4X;
 
     private Handler handler = new Handler();
     private Timer timer = new Timer();
+
+    DisplayMetrics displayMetrics;
+    LinearLayout layout1,layout1_1,layout1_2,layout2;
+    ConstraintLayout layout3;
 
 
     @Override
@@ -57,6 +66,8 @@ public class PlaygroundActivity3 extends AppCompatActivity {
         MainActivity.perfects = 0;
         MainActivity.goods = 0;
         MainActivity.poors = 0;
+
+
 
 
         score = findViewById(R.id.scores);
@@ -86,10 +97,30 @@ public class PlaygroundActivity3 extends AppCompatActivity {
         WindowManager wm = getWindowManager();
         Display display = wm.getDefaultDisplay();
 
+
+
+
         Point size = new Point();
         display.getSize(size);
         screenWidth = size.x;
         screenHeight = size.y;
+
+        displayMetrics = getResources().getDisplayMetrics();
+        DeviceInfor deviceInfor = new DeviceInfor(displayMetrics);
+        layout1 = findViewById(R.id.layout1);
+        layout1_1 = findViewById(R.id.layout1_1);
+        layout1_2 = findViewById(R.id.layout1_2);
+        layout2 = findViewById(R.id.layout2);
+        layout3 = findViewById(R.id.layout3);
+
+        layout1.getLayoutParams().height = (int)(screenHeight*0.25);
+        layout2.getLayoutParams().height = (int)(screenHeight*0.375);
+        layout3.getLayoutParams().height = (int)(screenHeight*0.375);
+        layout1_1.getLayoutParams().height = (int)(layout1.getLayoutParams().height*0.6);
+        layout1_2.getLayoutParams().height = (int)(layout1.getLayoutParams().height*0.4);
+
+
+        Log.d("layout1 height",""+screenWidth);
 
         image1 = findViewById(R.id.imageView1);
         image2 = findViewById(R.id.imageView2);
@@ -103,9 +134,9 @@ public class PlaygroundActivity3 extends AppCompatActivity {
 //        image1.setY(0.0f);
 
         image1X = screenWidth;
-        image2X = screenWidth+800;
+        image2X = screenWidth+500;
         image3X = screenWidth+300;
-        image4X = screenWidth+500;
+        image4X = screenWidth+800;
 
         timer.schedule(new TimerTask() {
             @Override
@@ -124,6 +155,7 @@ public class PlaygroundActivity3 extends AppCompatActivity {
 //        move();
 
         show = findViewById(R.id.shows);
+
 
 
         back_btn = findViewById(R.id.back_btn);       // initial main button
@@ -150,7 +182,7 @@ public class PlaygroundActivity3 extends AppCompatActivity {
     private void performOnEnd() {
         if (!mediaPlayer.isPlaying()){ //basically BACK was pressed from this activity
 //            mediaPlayer.stop();
-            Log.d("performOnEnd ", "mediaPlayer stop");
+            Log.d("performOnEnd ", "mediaPlayer stop "+i);
             Intent intent = new Intent(this, ScoreActivity.class);
             startActivity(intent);
             finish();
@@ -159,27 +191,40 @@ public class PlaygroundActivity3 extends AppCompatActivity {
 
     //https://www.youtube.com/watch?v=UxbJKNjQWD8
     private void changePos() {
-        image1X -=10;
-        if (image1.getX() < 300){
+        image1X -=5;
+        if (image1.getX() < (bear.getWidth()-image1.getWidth())){
+            i++;
             image1X = screenWidth;
+            if (i == 50){
+                image1.setVisibility(View.INVISIBLE);
+            }
         }
         image1.setX(image1X);
 
-        image2X -=10;
-        if (image2.getX() < 300){
+        image2X -=5;
+        if (image2.getX() < (bear.getWidth()-image2.getWidth())){
             image2X = screenWidth;
+            if (i == 49){
+                image2.setVisibility(View.INVISIBLE);
+            }
         }
         image2.setX(image2X);
 
-        image3X -=10;
-        if (image3.getX() < 300){
+        image3X -=5;
+        if (image3.getX() < (bear.getWidth()-image3.getWidth())){
             image3X = screenWidth;
+            if (i == 49){
+                image3.setVisibility(View.INVISIBLE);
+            }
         }
         image3.setX(image3X);
 
-        image4X -=10;
-        if (image4.getX() < 300){
+        image4X -=5;
+        if (image4.getX() < (bear.getWidth()-image4.getWidth())){
             image4X = screenWidth;
+            if (i == 49){
+                image4.setVisibility(View.INVISIBLE);
+            }
         }
         image4.setX(image4X);
 
@@ -203,10 +248,6 @@ public class PlaygroundActivity3 extends AppCompatActivity {
                 mediaPlayer.start();
             }
         }
-//        while (mediaPlayer.isPlaying()){
-////            Log.d("mediaPlayer", "is playing");
-//        }
-        Log.d("------","-----");
     }
 
 
@@ -219,23 +260,25 @@ public class PlaygroundActivity3 extends AppCompatActivity {
                 case MotionEvent.ACTION_DOWN: {
                     //press down image button
                     mButton01.setImageResource(R.mipmap.dumpling5_press);
+                    Log.d("-------",""+mButton01.getHeight()+" -- "+screenHeight);
                     bear.setImageResource(R.mipmap.bear_eat);
+                    Log.d("click1", ""+image2.getWidth());
                     sp1.play(music1, 1, 1, 0, 0, 1);
-                    if (image1X < 340){
+                    if (image1X < (bear.getWidth()-image1.getWidth()+50)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click1", "perfect");     // click baozi button in this is perfect
                     }                                              // if perfect, add some point to score
-                    else if (image1X >= 340 && image1X < 370){
+                    else if (image1X >= (bear.getWidth()-image1.getWidth()+50) && image1X < (bear.getWidth()-image1.getWidth()+100)){
                         MainActivity.scores += 100;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click1", "good");
                     }
-                    else if (image1X >= 370 && image1X < 400){
+                    else if (image1X >= (bear.getWidth()-image1.getWidth()+100) && image1X < (bear.getWidth()-image1.getWidth()+150)){
                         MainActivity.scores += 50;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.poors += 1;
@@ -244,21 +287,21 @@ public class PlaygroundActivity3 extends AppCompatActivity {
                     }else{
                         Log.d("click1", "bad");
                     }
-                    if (image2X < 340){
+                    if (image2X < (bear.getWidth()-image2.getWidth()+50)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click2", "perfect");
                     }
-                    else if (image2X >= 340 && image2X < 370){
+                    else if (image2X >= (bear.getWidth()-image2.getWidth()+50) && image2X < (bear.getWidth()-image2.getWidth()+100)){
                         MainActivity.scores += 100;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click2", "good");
                     }
-                    else if (image2X >= 370 && image2X < 400){
+                    else if (image2X >= (bear.getWidth()-image2.getWidth()+100) && image2X < (bear.getWidth()-image2.getWidth()+150)){
                         MainActivity.scores += 50;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.poors += 1;
@@ -296,21 +339,21 @@ public class PlaygroundActivity3 extends AppCompatActivity {
                     mButton02.setImageResource(R.mipmap.dumpling6_press);
                     bear.setImageResource(R.mipmap.bear_eat);
                     sp2.play(music2, 1, 1, 0, 0, 1);
-                    if (image3X < 340){
+                    if (image3X < (bear.getWidth()-image1.getWidth()+50)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click3", "perfect");
                     }
-                    else if (image3X >= 340 && image3X < 370){
+                    else if (image3X >= (bear.getWidth()-image1.getWidth()+50) && image3X < (bear.getWidth()-image1.getWidth()+100)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click3", "good");
                     }
-                    else if (image3X >= 370 && image3X < 400){
+                    else if (image3X >= (bear.getWidth()-image1.getWidth()+100) && image3X < (bear.getWidth()-(bear.getWidth()-image1.getWidth()+150))){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.poors += 1;
@@ -319,21 +362,21 @@ public class PlaygroundActivity3 extends AppCompatActivity {
                     }else{
                         Log.d("click3", "bad");
                     }
-                    if (image4X < 340){
+                    if (image4X < (bear.getWidth()-image1.getWidth()+50)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.perfects +=1;
                         show.setText("perfect");
                         Log.d("click4", "perfect");
                     }
-                    else if (image4X >= 340 && image4X < 370){
+                    else if (image4X >= (bear.getWidth()-image1.getWidth()+50) && image4X < (bear.getWidth()-image1.getWidth()+100)){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.goods += 1;
                         show.setText("good");
                         Log.d("click4", "good");
                     }
-                    else if (image4X >= 370 && image4X < 400){
+                    else if (image4X >= (bear.getWidth()-image1.getWidth()+100) && image4X < (bear.getWidth()-(bear.getWidth()-image1.getWidth()+150))){
                         MainActivity.scores += 200;
                         score.setText(String.valueOf(MainActivity.scores));
                         MainActivity.poors += 1;

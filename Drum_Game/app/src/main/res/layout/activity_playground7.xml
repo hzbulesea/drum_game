@@ -4,74 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/dinner"
+    android:background="@mipmap/afternoon_tea"
     android:orientation="vertical"
     android:screenOrientation="landscape"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     tools:context=".PlaygroundActivity7">
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/baloo"
-            android:paddingLeft="30dp"
-            android:text="Score:"
-            android:textColor="#F8D51A"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/scores"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/baloo"
-            android:paddingLeft="10dp"
-            android:text="100000"
-            android:textAllCaps="false"
-            android:textColor="#FCE629"
-            android:textColorHighlight="#F9D51A"
-            android:textIsSelectable="false"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/back_btn"
-            android:layout_width="55dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="10dp"
-            android:background="#00000000"
-            android:scaleType="fitXY"
-            app:srcCompat="@mipmap/icon_back" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="100dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/shows"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/alfa_slab_one"
-            android:textColor="#E4F925"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
+
+        <LinearLayout
+            android:id="@+id/layout1_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/baloo"
+                android:paddingLeft="30dp"
+                android:text="Score:"
+                android:textColor="#F8D51A"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/scores"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/baloo"
+                android:paddingLeft="10dp"
+                android:text="100000"
+                android:textAllCaps="false"
+                android:textColor="#FCE629"
+                android:textColorHighlight="#F9D51A"
+                android:textIsSelectable="false"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="55dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="30dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/icon_back" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1_2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shows"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/alfa_slab_one"
+                android:textColor="#E4F925"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="horizontal">
@@ -113,33 +131,41 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout3"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="222dp">
+        android:layout_height="150dp">
 
         <ImageButton
             android:id="@+id/left"
             android:layout_width="151dp"
             android:layout_height="124dp"
+            android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="13dp"
             android:background="#00000000"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/dumpling5" />
 
         <ImageButton
             android:id="@+id/right"
             android:layout_width="151dp"
             android:layout_height="112dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="19dp"
             android:background="#00000000"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/dumpling6" />
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.widget.LinearLayout>
 
